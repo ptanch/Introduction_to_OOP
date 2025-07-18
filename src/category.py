@@ -23,11 +23,10 @@ class Category:
         self.__products.append(product)
         Category.product_count += 1
 
-    @property
-    def products(self) -> str:
-        """Вывод списка товаров в виде строк"""
+    def __str__(self) -> str:
+        """Вывод категории и количества товаров в виде строк"""
         return ''.join(
-            f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            f"{self.name}, количество продуктов: {product.quantity} шт.\n"
             for product in self.__products
         )
 

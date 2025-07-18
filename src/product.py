@@ -29,3 +29,6 @@ class Product:
             self.__price = correct_price
         else:
             print("Цена не должна быть нулевая или отрицательная")
+
+    def __str__(self):
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
