@@ -36,4 +36,4 @@ class Product:
     def __add__(self, other):
         if not isinstance(other, Product):
             return NotImplemented
-        return Product(self.__price * self.quantity + other.__price * other.quantity)
+        return self.price * self.quantity + other.price * other.quantity
