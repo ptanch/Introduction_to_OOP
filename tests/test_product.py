@@ -1,7 +1,8 @@
-#  Тест с инициализацией первого продукта
+import pytest
 from src.product import Product
 
 
+#  Тест с инициализацией первого продукта
 def test_init_first(first_product):
     assert first_product.name == "Samsung Galaxy S23 Ultra"
     assert first_product.description == "256GB, Серый цвет, 200MP камера"
@@ -64,3 +65,20 @@ def test_price_setter_invalid(capsys):
     message = capsys.readouterr()
     assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
     assert product.price == 100.0  # значение не изменилось
+
+
+def test_product_str(first_product):
+    expected_str = "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
+    assert str(first_product) == expected_str
+
+
+def test_product_add(first_product, second_product):
+    # (180000 * 5) + (210000 * 8) = 900000 + 1680000 = 2580000.0
+    expected_sum = 2580000.0
+    result = first_product + second_product
+    assert result == expected_sum
+
+
+def test_product_add_with_non_product(first_product):
+    with pytest.raises(TypeError):
+        _ = first_product + 10
