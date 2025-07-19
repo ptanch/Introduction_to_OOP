@@ -23,7 +23,8 @@ class Category:
         self.__products.append(product)
         Category.product_count += 1
 
-    def __str__(self) -> str:
+    @property
+    def product(self) -> str:
         """Вывод категории и количества товаров в виде строк"""
         return ''.join(
             f"{self.name}, количество продуктов: {product.quantity} шт.\n"
