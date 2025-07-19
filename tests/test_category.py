@@ -72,3 +72,8 @@ def test_product_property(first_category, second_category):
 
     assert first_category.products == expected_output_first
     assert second_category.products == expected_output_second
+
+
+def test_category_str(first_category):
+    expected_str = "Смартфоны, количество продуктов: 27 шт."
+    assert str(first_category) == expected_str
