@@ -24,7 +24,7 @@ class Category:
         Category.product_count += 1
 
     @property
-    def product(self) -> str:
+    def products(self) -> str:
         """Вывод категории и количества товаров в виде строк"""
         return ''.join(
             f"{self.name}, количество продуктов: {product.quantity} шт.\n"
@@ -35,3 +35,7 @@ class Category:
     def product_items(self) -> list[Product]:
         """Возвращает список объектов продуктов в категории"""
         return self.__products
+
+    def __str__(self) -> str:
+        total_quantity = sum(product.quantity for product in self.__products)
+        return f"{self.name}, количество продуктов: {total_quantity} шт."
