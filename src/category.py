@@ -25,11 +25,8 @@ class Category:
 
     @property
     def products(self) -> str:
-        """Вывод категории и количества товаров в виде строк"""
-        return ''.join(
-            f"{self.name}, количество продуктов: {product.quantity} шт.\n"
-            for product in self.__products
-        )
+        """Вывод списка товаров в виде строк"""
+        return ''.join(str(product) + '\n' for product in self.__products)
 
     @property
     def product_items(self) -> list[Product]:
