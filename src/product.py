@@ -36,4 +36,6 @@ class Product:
 
     def __add__(self, other):
         """Метод сложения числовых значений продуктов"""
+        if type(other) is not type(self):
+            raise TypeError
         return self.price * self.quantity + other.price * other.quantity
