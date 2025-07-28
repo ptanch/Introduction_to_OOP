@@ -2,6 +2,7 @@ import pytest
 
 from src.category import Category
 from src.product import Product
+from src.smartphone import Smartphone
 
 
 # === Products ===
@@ -71,4 +72,33 @@ def second_category():
             "станет вашим другом и помощником"
         ),
         products=[Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)]
+    )
+
+
+# === Smartphones ===
+@pytest.fixture
+def smartphone1():
+    return Smartphone(
+        name="Samsung Galaxy S23 Ultra",
+        description="256GB, Серый цвет, 200MP камера",
+        price=180000.0,
+        quantity=5,
+        efficiency=95.5,
+        model="S23 Ultra",
+        memory=256,
+        color="Серый"
+    )
+
+
+@pytest.fixture
+def smartphone2():
+    return Smartphone(
+        name="Iphone 15",
+        description="512GB, Gray space",
+        price=210000.0,
+        quantity=8,
+        efficiency=98.2,
+        model="15",
+        memory=512,
+        color="Gray space"
     )
