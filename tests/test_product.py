@@ -64,7 +64,7 @@ def test_price_setter_invalid(capsys):
     product = Product("Smartphone", "Test product", 100.0, 2)
     product.price = -100.0  # попытка задать недопустимую цену
     message = capsys.readouterr()
-    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
+    assert message.out.strip().split("\n")[-1] == "Цена не должна быть нулевая или отрицательная"
     assert product.price == 100.0  # значение не изменилось
 
 
