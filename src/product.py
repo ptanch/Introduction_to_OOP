@@ -31,9 +31,11 @@ class Product:
             print("Цена не должна быть нулевая или отрицательная")
 
     def __str__(self):
+        """Метод представления информации в строковом виде"""
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        if not isinstance(other, Product):
-            return NotImplemented
+        """Метод сложения числовых значений продуктов"""
+        if type(other) is not type(self):
+            raise TypeError
         return self.price * self.quantity + other.price * other.quantity

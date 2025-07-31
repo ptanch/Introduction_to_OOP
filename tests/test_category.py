@@ -77,3 +77,11 @@ def test_product_property(first_category, second_category):
 def test_category_str(first_category):
     expected_str = "Смартфоны, количество продуктов: 27 шт."
     assert str(first_category) == expected_str
+
+
+def test_add_product_adds_correctly(first_category, smartphone1):
+    initial_count = Category.product_count
+    first_category.add_product(smartphone1)
+
+    assert smartphone1 in first_category.product_items
+    assert Category.product_count == initial_count + 1
