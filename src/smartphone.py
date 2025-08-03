@@ -20,9 +20,3 @@ class Smartphone(Product):
         self.model = model
         self.memory = memory
         self.color = color
-
-    def __add__(self, other):
-        if type(other) is type(self):
-            return super().__add__(other)
-        else:
-            raise TypeError("Можно складывать только смартфоны со смартфонами")
