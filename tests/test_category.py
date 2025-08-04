@@ -85,3 +85,8 @@ def test_add_product_adds_correctly(first_category, smartphone1):
 
     assert smartphone1 in first_category.product_items
     assert Category.product_count == initial_count + 1
+
+
+def test_middle_price(first_category, category_with_no_products):
+    assert first_category.middle_price() == 140333.33333333334
+    assert category_with_no_products.middle_price() == 0
