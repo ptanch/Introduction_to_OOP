@@ -83,3 +83,18 @@ def test_product_add(first_product, second_product):
 def test_product_add_with_non_product(first_product):
     with pytest.raises(TypeError):
         _ = first_product + 10
+
+
+def test_product_with_zero_quantity_raises_value_error():
+    with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
+        Product(name="Тестовый товар", description="", price=100.0, quantity=0)
+
+
+def test_product_with_negative_quantity_raises_value_error():
+    with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
+        Product(name="Тестовый товар", description="", price=100.0, quantity=-5)
+
+
+def test_product_with_positive_quantity_initializes_correctly():
+    product = Product(name="Тестовый товар", description="", price=100.0, quantity=10)
+    assert product.quantity == 10
