@@ -130,3 +130,12 @@ def grass2():
         germination_period="5 дней",
         color="Темно-зеленый"
     )
+
+
+@pytest.fixture
+def category_with_no_products():
+    return Category(
+        name="Ничего",
+        description="Отсутствие товара",
+        products=[]
+    )
